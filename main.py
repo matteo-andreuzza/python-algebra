@@ -21,6 +21,39 @@ def molt(x,y):
     return str((int(q)*int(w))) + q2 + w2
 op = ['-']
 num = ['1','2','3','4','5','6','7','8','9']
+lett = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+import re
+
+def fil(lista):
+    # Utilizza la list comprehension e regex per filtrare numeri, lettere e espressioni alfanumeriche
+    lista_filtrata = [elemento for elemento in lista if re.search(r'[a-zA-Z0-9]', str(elemento))]
+    return lista_filtrata
+
+def algsum(d):
+    fi = []
+    t1 = ''
+    t2 = ''
+        
+    print(d)
+    c =fil(d)
+    print('filt '+str(c))
+    l = len(c)        
+    for i in range(l-1):
+        try:
+            t1 = c[i]
+            t2 = c[i+1]
+            c.pop(i+1)
+            l = l-1
+            c[i] = sum(t1,t2)
+        except IndexError:
+            t1 = c[i-1]
+            t2 = c[i-2]
+            c.pop(i-2)
+            l = l-1
+            c[i-2] = sum(t1,t2)
+    return c
+        
+        
 def sum(x,y):
     q = ''
     q2 = ''
@@ -64,10 +97,10 @@ def sum(x,y):
         except ValueError:
             w2 += i
         c = c+1
-    if q2 == w2:
+    if q2 == w2 and int(q)+int(w) != 0:
         return str((int(q)+int(w))) + q2
+    elif int(q) + int(w) == 0:
+        return ''
     else:
         return 'impossibile sommare termini con lettere diverse'
-g1 = input("inserire primo termine... ")
-g2 = input("inserire secondo termine... ")
-print("somma " + str(sum(g1, g2)))
+print("somma " + str(algsum(['7ab', '16ab', '-2ab', '4ab'])))
