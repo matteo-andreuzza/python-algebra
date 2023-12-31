@@ -1,3 +1,4 @@
+from listpol import listpol
 a = ''
 b = ''
 
@@ -19,27 +20,7 @@ def molt(x,y):
                 w += i
         except ValueError:
             w2 += i
-    r = str((int(q)*int(w))) + q2 + w2
-    print('r' + r)
-    es = 0
-    ret = list(r)
-    for i in range(len(ret)):
-        try:
-            if ret[i] == ret[i+1]:
-                for k in range(len(ret)-i):
-                    try:
-                        if ret[k] == ret[k+1]:
-                            es = es + 1
-                            ret.pop(k+1)
-                    except IndexError:
-                        pass
-                ret[i] = ret[i] + '^' + str(es+1)
-        except IndexError:
-            pass
-    r = ''
-    for i in ret:
-        r += i
-    return r
+    return str(int(w)*int(q))+str(q2) + str(w2)
 op = ['-']
 num = ['1','2','3','4','5','6','7','8','9']
 lett = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -140,4 +121,4 @@ def sum(x,y):
     else:
         return 'impossibile sommare termini con lettere diverse'
 
-print(molt('4ab', '2ab'))
+print(molt('4ab', '2ac'))
