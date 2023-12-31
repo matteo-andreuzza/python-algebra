@@ -31,8 +31,8 @@ def fil(lista):
     lista_filtrata = [elemento for elemento in lista if re.search(r'[a-zA-Z0-9]', str(elemento))]
     return lista_filtrata
 
-def algsum(d):
-    fi = []
+def algsum(d): #! FUNZIONA, NON TOCCARE 
+    fi = []    #? il 31/12/2023 con git siamo tornati alla versione precedente perchè per qualche motivo era stata modificata e resa inutilizzabile
     t1 = ''
     t2 = ''
         
@@ -61,8 +61,6 @@ def sum(x,y):
     q2 = ''
     w = ''
     w2 = ''
-    esp1 = 0
-    esp2 = 0
     c = 0
     if x[0] != "-" and x[0] not in num:
         t = list(x)
@@ -76,43 +74,30 @@ def sum(x,y):
         y = ''
         for z in t:
             y += str(z)
-    for i in range(len(x)):
-        if x[i] == '^':
-            esp1 = i
     for i in x:
-        if c < esp1:
-            try:
-                if i == '-':
-                    continue
-                if type(int(i)) == int and x[c] == '-':
-                    q += '-'+i
-                else:
-                    q += i
-            except ValueError:
-                q2 += i
-        else:
+        try:
+            if i == '-':
+                continue
+            if type(int(i)) == int and x[c] == '-':
+                q += '-'+i
+            else:
+                q += i
+        except ValueError:
             q2 += i
         c = c+1
     c = 0
     i = 0
-    for i in range(len(y)):
-        if y[i] == '^':
-            esp2 = i
     for i in y:
-        if c < esp2:
-            try:
-                if i == '-':
-                    continue
-                if type(int(i)) == int and y[c] == '-':
-                    w += '-'+i
-                else:
-                    w +=i
-                
-            except ValueError:
-                w2 += i
-        else:
-            w2 += i
+        try:
+            if i == '-':
+                continue
+            if type(int(i)) == int and y[c] == '-':
+                w += '-'+i
+            else:
+                w +=i
             
+        except ValueError:
+            w2 += i
         c = c+1
     if q2 == w2 and int(q)+int(w) != 0:
         return str((int(q)+int(w))) + q2
@@ -120,5 +105,4 @@ def sum(x,y):
         return ''
     else:
         return 'impossibile sommare termini con lettere diverse'
-
-print(molt('4ab', '2ac'))
+print(algsum(['-5pq', '6pq', '-10pq'])) #! DA LASCIARE PER CONTINUO TESTING

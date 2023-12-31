@@ -54,4 +54,3 @@ def listpol(a):
         i = i + 1
     b.pop(-1) #! IMPORTANTE, lasciare perchè rimuove lettera temporanea per non fare IndexError
     return b
-print(listpol('4ab^222c^4d^26'))
