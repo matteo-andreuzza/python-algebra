@@ -1,5 +1,5 @@
 #! nuovo file della moltiplicazione, commento tutto
-
+from aggr import aggr
 from listmut import el
 from listpol import listpol
 def IsEsp(index, arr):
@@ -15,6 +15,7 @@ def esp(index, arr):
     return int(arr[index + 2])
 lett = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+#! moltiplicazione di parti letterali di due monomi, restituisce stringa
 
 def molt(a,b):
     t = [] #? t array da returnare
@@ -55,7 +56,7 @@ def molt(a,b):
             continue
     for i in b:
         t.append(i)
-    return t
+    return aggr(t,'s') #aggrego l'array, restituendo una stringa.
 print('a^3b^2 * a^2c^3 = ' + str(molt(listpol('a^3b^2'), listpol('a^2c^3'))))
 print('b^2 * c^3 = ' + str(molt(listpol('b^2'), listpol('c^3'))))
 print('a^3b^2 * 3a^2c^3 = '+ str(molt(listpol('a^3b^2'), listpol('a^2c^3'))))
