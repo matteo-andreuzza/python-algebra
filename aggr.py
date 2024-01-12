@@ -10,11 +10,15 @@ def aggr(a,s):
     g = ''
     k = 0
     while k < len(a): # scorre lista
-        if a[k+1] == '^':
-            t.append(a[k] + a[k+1] + a[k+2])
-            k = k +2
-        else:
+        try:
+            if a[k+1] == '^':
+                t.append(a[k] + a[k+1] + a[k+2])
+                k = k +2
+            else:
+                t.append(a[k])
+        except IndexError:
             t.append(a[k])
+            
         k = k+1
     if s == 's': # ritorno stringa
         for i in t:
@@ -24,3 +28,6 @@ def aggr(a,s):
         return t
     else:
         return "errore parametro s"
+
+
+print(aggr(['a','b'],'s'))
