@@ -21,7 +21,7 @@ num = ['1','2','3','4','5','6','7','8','9']
 #! moltiplicazione di parti letterali di due monomi, restituisce stringa
 
 def molt(a,b):
-    if a>b:
+    if len(a)>len(b):
         return molt(b,a)
     else:
         t = [] #? t array da returnare
@@ -71,10 +71,11 @@ def molt(a,b):
 
 
 def algmolt(a,b):
-    print(f""" 
-**** MOLTIPLICAZIONE ****
-DI   {aggr(a,'s')} * {aggr(b,'s')}
-""")
+#   print(f""" 
+#  MOLTIPLICAZIONE ****
+#DI   {aggr(a,'s')} * {aggr(b,'s')}
+#""")
+    flag = False
     z = []
     a1 = 0
     b1 = 0
@@ -83,15 +84,29 @@ DI   {aggr(a,'s')} * {aggr(b,'s')}
         a1 = a1 + int(a[d])
         a.pop(d)
         d = d+1
+    if a1 == 0:
+        a1 = 1
     d = 0
     while b[d] in num:
         b1 = b1 + int(b[d])
         b.pop(d)
         d = d+1
+    if b1 == 0:
+        b1 = 1
     if a1 != 0 and b1 != 0:
-        z.append(str(a1*b1))
+        if (a1*b1) < 0:
+            z.append(str(a1*b1))
+        elif (a1*b1) == 1:
+            pass
+        else:
+            z.append('+' + str(a1*b1))
+            flag = True
     z.append(molt(listpol(aggr(a,'s')),listpol(aggr(b,'s'))))
-    return aggr(z,'s')
+    if flag == False:
+        return '+' + aggr(z,'s')
+    else:
+        return aggr(z,'s')
+        
     
 print(algmolt(listpol("2ab"), listpol("2ab")))
 print(algmolt(listpol('a^3b^2'), listpol('a^2c^3')))
@@ -100,3 +115,5 @@ print(algmolt(listpol('a^3b^2'), listpol('a^2c^3')))
 print(algmolt(listpol('x^2y^3'), listpol('x^3m^2')))
 print(algmolt(listpol('p^4q^5'), listpol('p^3r^4')))
 print(algmolt(listpol('p^4q^5z^3d^22'), listpol('p^4q^5')))
+
+print(algmolt(listpol('a^2b^2'), listpol('2ac')))

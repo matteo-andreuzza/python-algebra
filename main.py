@@ -2,7 +2,7 @@ from listpol import listpol
 a = ''
 b = ''
 
-def molt(x,y):
+"""def molt(x,y):
     ret = ''
     q = ''
     q2 = ''
@@ -20,7 +20,7 @@ def molt(x,y):
                 w += i
         except ValueError:
             w2 += i
-    return str(int(w)*int(q))+str(q2) + str(w2)
+    return str(int(w)*int(q))+str(q2) + str(w2)"""
 op = ['-']
 num = ['1','2','3','4','5','6','7','8','9']
 lett = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
