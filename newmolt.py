@@ -15,7 +15,7 @@ def IsEsp(index, arr):
 def esp(index, arr):
     return int(arr[index + 2])
 lett = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-num = ['1','2','3','4','5','6','7','8','9']
+num = ['1','2','3','4','5','6','7','8','9','-']
 
 
 #! moltiplicazione di parti letterali di due monomi, restituisce stringa
@@ -71,31 +71,40 @@ def molt(a,b):
 
 
 def algmolt(a,b):
-#   print(f""" 
-#  MOLTIPLICAZIONE ****
-#DI   {aggr(a,'s')} * {aggr(b,'s')}
-#""")
+#    print(f""" 
+#        MOLTIPLICAZIONE ****
+#        DI   {aggr(a,'s')} * {aggr(b,'s')}
+#    """)
     flag = False
     z = []
-    a1 = 0
-    b1 = 0
+    a1 = ''
+    b1 = ''
     d = 0
-    while a[d] in num:
-        a1 = a1 + int(a[d])
-        a.pop(d)
+    while a[d-d] in num:
+        a1 = a1 + str(a[d-d])
+        a.pop(d-d)
         d = d+1
+    if a1 != '':
+        a1 = int(a1)
+    else:
+        a1 = 0
     if a1 == 0:
         a1 = 1
     d = 0
-    while b[d] in num:
-        b1 = b1 + int(b[d])
-        b.pop(d)
+    while b[d-d] in num:
+        b1 = b1 + str(b[d-d])
+        b.pop(d-d)
         d = d+1
+    if b1 != '':
+        b1 = int(b1)
+    else:
+        b1 = 0
     if b1 == 0:
         b1 = 1
     if a1 != 0 and b1 != 0:
         if (a1*b1) < 0:
             z.append(str(a1*b1))
+            flag = True
         elif (a1*b1) == 1:
             pass
         else:
@@ -108,12 +117,12 @@ def algmolt(a,b):
         return aggr(z,'s')
         
     
-print(algmolt(listpol("2ab"), listpol("2ab")))
+print(algmolt(listpol("6ab"), listpol("2ab")))
 print(algmolt(listpol('a^3b^2'), listpol('a^2c^3')))
 print(algmolt(listpol('ab'), listpol('ab')))
 print(algmolt(listpol('a^3b^2'), listpol('a^2c^3')))
 print(algmolt(listpol('x^2y^3'), listpol('x^3m^2')))
 print(algmolt(listpol('p^4q^5'), listpol('p^3r^4')))
 print(algmolt(listpol('p^4q^5z^3d^22'), listpol('p^4q^5')))
-
+print(algmolt(listpol('12x'), listpol('3x')))
 print(algmolt(listpol('a^2b^2'), listpol('2ac')))

@@ -20,3 +20,5 @@ DI   {aggr(a,'s')} * {str(b)}
         t.pop(0)
     return aggr(t,'s')
             
+print(polmolt(['a^2b^2'], ['a^2c', '2ac']))
+print(polmolt(['12x','4x'], ['3x', '-5x']))
