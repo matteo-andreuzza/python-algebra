@@ -4,6 +4,7 @@
 
 from newmolt import algmolt
 from listpol import listpol
+from listmut import el
 from aggr import aggr
 def polmolt(a,b):
     print(f""" 

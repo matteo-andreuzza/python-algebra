@@ -1,4 +1,5 @@
 from listpol import listpol
+from newsum import newsum
 a = ''
 b = ''
 
@@ -21,7 +22,7 @@ b = ''
         except ValueError:
             w2 += i
     return str(int(w)*int(q))+str(q2) + str(w2)"""
-op = ['-']
+op = ['-', '+']
 num = ['1','2','3','4','5','6','7','8','9']
 lett = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 import re
@@ -46,17 +47,18 @@ def algsum(d): #! FUNZIONA, NON TOCCARE
             t2 = c[i+1]
             c.pop(i+1)
             l = l-1
-            c[i] = sum(t1,t2)
+            c[i] = newsum(t1,t2)
         except IndexError:
             t1 = c[i-1]
             t2 = c[i-2]
             c.pop(i-2)
             l = l-1
-            c[i-2] = sum(t1,t2)
+            c[i-2] = newsum(t1,t2)
     return c
         
         
 def sum(x,y):
+    # TODO far accettare anche parti letterali esponenziali
     q = ''
     q2 = ''
     w = ''
@@ -106,3 +108,4 @@ def sum(x,y):
     else:
         return 'impossibile sommare termini con lettere diverse'
 print(algsum(['-5pq', '6pq', '-10pq'])) #! DA LASCIARE PER CONTINUO TESTING
+print(algsum(['-5p^2', '6p^2', '-10p^2'])) #! non accetta letterali esponenziali

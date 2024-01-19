@@ -1,5 +1,5 @@
 #! nuovo file della moltiplicazione, commento tutto
-#TODO se a > b 
+
 from aggr import aggr
 from listmut import el
 from listpol import listpol
