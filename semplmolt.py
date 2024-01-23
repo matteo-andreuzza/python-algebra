@@ -4,12 +4,13 @@
 #36x^2-60x^2+12x^2-20x^2
 
 #TODO controllare variabili per usare algsum altrimenti dà errore
-#TODO valutare di mettere in main la semplificazione oppure di tenerla qui
+
 op = ['-', '+']
 num = ['1','2','3','4','5','6','7','8','9']
 lett = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 from aggr import aggr
 from main import algsum
+from letpart import letpart
 #36x^2-60x^2+12x^2-20x^2
 def semplmolt(a):
     t = ['']
@@ -58,8 +59,38 @@ def semplmolt(a):
             x = x-1
         else:
             i = i+1
-    print(t)
-    return algsum(t)
+    return t
 
 
 print(semplmolt('36x^2-60x^2+12x^2-20x^2'))
+
+#? semplifica polinomio usando semplmolt:
+# print(sempl('36x^2-60x^2+12x-20x'))
+# -24x^2-8x
+# ( ['-24x^2', '-8x'] )
+
+def sempl(a):
+    a = semplmolt(a)
+    g = 0
+    flag = False
+    t = []
+    r = []
+    z = []
+    for i in a:
+        if letpart(i) in t:
+            continue
+        else:
+            t.append(letpart(i))
+    for i in t:
+        for k in a:
+            if letpart(k) == i:
+                r.append(k)
+                r=algsum(r)
+        z.append(aggr(r,'s'))
+        r = []
+        
+    return aggr(z, 's')
+
+print(sempl('36x^2-60x^2+12x-20x'))
+
+print(sempl('36x^2-60x^2+12x^2-20x^2'))

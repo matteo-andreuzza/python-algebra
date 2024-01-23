@@ -57,55 +57,6 @@ def algsum(d): #! FUNZIONA, NON TOCCARE
     return c
         
         
-def sum(x,y):
-    # TODO far accettare anche parti letterali esponenziali
-    q = ''
-    q2 = ''
-    w = ''
-    w2 = ''
-    c = 0
-    if x[0] != "-" and x[0] not in num:
-        t = list(x)
-        t.insert(0, '1')
-        x = ''
-        for z in t:
-            x += str(z)
-        if y[0] != "+" or y[0] != "":
-            t = list(y)
-            t.insert(0, '1')
-        y = ''
-        for z in t:
-            y += str(z)
-    for i in x:
-        try:
-            if i == '-':
-                continue
-            if type(int(i)) == int and x[c] == '-':
-                q += '-'+i
-            else:
-                q += i
-        except ValueError:
-            q2 += i
-        c = c+1
-    c = 0
-    i = 0
-    for i in y:
-        try:
-            if i == '-':
-                continue
-            if type(int(i)) == int and y[c] == '-':
-                w += '-'+i
-            else:
-                w +=i
-            
-        except ValueError:
-            w2 += i
-        c = c+1
-    if q2 == w2 and int(q)+int(w) != 0:
-        return str((int(q)+int(w))) + q2
-    elif int(q) + int(w) == 0:
-        return ''
-    else:
-        return 'impossibile sommare termini con lettere diverse'
+
 print(algsum(['-5pq', '6pq', '-10pq'])) #! DA LASCIARE PER CONTINUO TESTING
 print(algsum(['-5p^2', '6p^2', '-10p^2'])) #! non accetta letterali esponenziali
