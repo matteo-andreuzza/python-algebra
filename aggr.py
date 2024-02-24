@@ -29,5 +29,12 @@ def aggr(a,s):
     else:
         return "errore parametro s"
 
+def tostring(array):
+    s = ''
+    for i in array:
+        s+=i
+    return s
 
-print(aggr(['a','b'],'s'))
+print(tostring(['40cd', '20c^2', '-10cb', '-32bd', '-16bc', '8b^2', '24ad', '12ac', '-6ab']))
+
+print(aggr(['a^5', 'b', '^', '2', 'c', '^', '3','4', 'z', 'x'],'a'))

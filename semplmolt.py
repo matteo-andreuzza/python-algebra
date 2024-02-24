@@ -8,9 +8,9 @@
 op = ['-', '+']
 num = ['1','2','3','4','5','6','7','8','9']
 lett = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-from aggr import aggr
+from aggr import *
 from main import algsum
-from letpart import letpart
+from letpart import *
 #36x^2-60x^2+12x^2-20x^2
 def semplmolt(a):
     t = ['']
@@ -62,7 +62,33 @@ def semplmolt(a):
     return t
 
 
-print(semplmolt('36x^2-60x^2+12x^2-20x^2'))
+# ordinamento variabili ['40cd', '20c^2', '-10cb', '-32bd', '-16bc', '8b^2', '24ad', '12ac', '-6ab']
+
+def ord(a):
+    tempNumArr = []
+    tempLetArr = []
+    tempString = ''
+    tempString1 = ''
+    f = 0
+    for x in range(len(a)):
+        i = a[x-f]
+        tempNumArr = []
+        tempLetArr = []
+        tempString = ''
+        tempString1 = ''
+        tempLetArr = aggr(listpol(letpart(i)), 'a')
+        tempLetArr.sort()
+        tempNumArr = list(numpart(i))
+        a.pop(a.index(i))
+        f = f+1
+        tempString = tostring(tempLetArr)
+        tempString1 = tostring(tempNumArr)
+        a.append(tempString1 + tempString)
+    return a
+    
+a = ['40cd', '20c^2', '-10cb^3s', '-32bd', '-16bc', '8b^2', '24ad', '12ac', '-6ab']
+ord(a)
+print(a)
 
 #? semplifica polinomio usando semplmolt:
 # print(sempl('36x^2-60x^2+12x-20x'))
@@ -71,6 +97,7 @@ print(semplmolt('36x^2-60x^2+12x^2-20x^2'))
 
 def sempl(a):
     a = semplmolt(a)
+    a = ord(a)
     g = 0
     flag = False
     t = []
@@ -89,8 +116,11 @@ def sempl(a):
         z.append(aggr(r,'s'))
         r = []
         
-    return aggr(z, 's')
+    return aggr(z, 'a')
 
-print(sempl('36x^2-60x^2+12x-20x'))
+#print(sempl('36x^2-60x^2+12x-20x'))
 
-print(sempl('36x^2-60x^2+12x^2-20x^2'))
+#print(sempl('36x^2-60x^2+12x^2-20x^2'))
+
+print(sempl('40cd+20c^2-10cb-32bd-16bc+8b^2+24ad+12ac-6ab'))
+

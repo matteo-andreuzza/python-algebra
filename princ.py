@@ -42,8 +42,8 @@ match a:
 *** FORMATO ***
 newsum("2a^2", '2a^2')
       """)
-        a = input("inserire monomio 1")
-        b = input("inserire monomio 2")
+        a = input("inserire monomio 1  ")
+        b = input("inserire monomio 2  ")
         print(newsum(a,b))
     case "*":
         print("""
@@ -58,8 +58,8 @@ newsum("2a^2", '2a^2')
 *** FORMATO ***
 algmolt(listpol("6ab"), listpol("2ab"))
       """)
-        a = input("inserire monomio 1")
-        b = input("inserire monomio 2")
+        a = input("inserire monomio 1  ")
+        b = input("inserire monomio 2  ")
         print(algmolt(listpol(str(a)), listpol(str(b))))
     case '++':
         print("""
@@ -74,10 +74,10 @@ algmolt(listpol("6ab"), listpol("2ab"))
 *** FORMATO ***
 algsum(['-5pq', '6pq', '-10pq'])
       """)
-        n = input("inserire numero di elementi da inserire")
+        n = input("inserire numero di elementi da inserire  ")
         x = []
         for i in range(int(n)):
-            x.append(input("inserire monomio"))
+            x.append(input("inserire monomio  "))
         print(algsum(x))
         
     case "**":
@@ -93,14 +93,14 @@ algsum(['-5pq', '6pq', '-10pq'])
 *** FORMATO ***
 polmolt(['a^2b^2'], ['a^2c', '2ac']))
       """)
-        n = input("inserire numero di elementi da inserire polinomio 1")
-        n1 = input("elmenti polinomio 2")
+        n = input("inserire numero di elementi da inserire polinomio 1  ")
+        n1 = input("elmenti polinomio 2  ")
         x = []
         x1 = []
         for i in range(int(n)):
-            x.append(input("inserire monomio pol 1"))
+            x.append(input("inserire monomio pol 1  "))
         for i in range(int(n1)):
-            x1.append(input("inserire monomio pol 2"))
+            x1.append(input("inserire monomio pol 2  "))
         print(polmolt(x,x1))
         
     case "**/":
@@ -116,14 +116,14 @@ polmolt(['a^2b^2'], ['a^2c', '2ac']))
         *** FORMATO ***
         polmolt(['a^2b^2'], ['a^2c', '2ac']))
             """)
-        n = input("inserire numero di elementi da inserire polinomio 1")
-        n1 = input("elmenti polinomio 2")
+        n = input("inserire numero di elementi da inserire polinomio 1  ")
+        n1 = input("elmenti polinomio 2  ")
         x = []
         x1 = []
         for i in range(int(n)):
-            x.append(input("inserire monomio pol 1"))
+            x.append(input("inserire monomio pol 1  "))
         for i in range(int(n1)):
-            x1.append(input("inserire monomio pol 2"))
+            x1.append(input("inserire monomio pol 2  "))
         print(sempl(polmolt(x,x1)))
 
     case _ :

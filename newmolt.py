@@ -80,10 +80,12 @@ def algmolt(a,b):
     a1 = ''
     b1 = ''
     d = 0
+    a.append('è') # aggiunge lettera temporanea in caso di monomio di soli numeri (è perchè carattere meno probabile che possa essere insertio)
     while a[d-d] in num:
         a1 = a1 + str(a[d-d])
         a.pop(d-d)
         d = d+1
+    a.pop(a.index("è"))
     if a1 != '':
         a1 = int(a1)
     else:
@@ -91,10 +93,12 @@ def algmolt(a,b):
     if a1 == 0:
         a1 = 1
     d = 0
+    b.append("è")
     while b[d-d] in num:
         b1 = b1 + str(b[d-d])
         b.pop(d-d)
         d = d+1
+    b.pop(b.index("è")) # stesso di sopra
     if b1 != '':
         b1 = int(b1)
     else:
@@ -116,7 +120,9 @@ def algmolt(a,b):
     else:
         return aggr(z,'s')
         
-    
+
+print(algmolt(listpol("5"), listpol("2ab"))) # monomi di soli numeri
+print(algmolt(listpol("2ax"), listpol("5"))) # monomi di soli numeri
 print(algmolt(listpol("6ab"), listpol("2ab")))
 print(algmolt(listpol('a^3b^2'), listpol('a^2c^3')))
 print(algmolt(listpol('ab'), listpol('ab')))

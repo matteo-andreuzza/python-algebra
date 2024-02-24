@@ -15,4 +15,16 @@ def letpart(mon):
         w1+=i
     return w1
 
+def numpart(mon):
+    mon = list(mon)
+    q1 = ''
+    w1 = ''
+    i = 0
+    while mon[i] in num:
+        q1+=mon[i]
+        mon.pop(i)
+        
+    return q1
+
 print(letpart("45avc"))
+print(numpart("45av^2c"))

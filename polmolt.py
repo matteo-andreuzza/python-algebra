@@ -9,7 +9,7 @@ from aggr import aggr
 def polmolt(a,b):
     print(f""" 
 ****** MOLTIPLICAZIONE  ****
-DI   {aggr(a,'s')} * {str(b)}
+DI   {str(a)} * {str(b)}
     """)
       
     t = []

@@ -54,3 +54,6 @@ def listpol(a):
         i = i + 1
     b.pop(-1) #! IMPORTANTE, lasciare perchè rimuove lettera temporanea per non fare IndexError
     return b
+
+#print(listpol("ab^21"))
+#['a', 'b', '^', '21']
