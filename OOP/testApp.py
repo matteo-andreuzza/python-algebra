@@ -20,9 +20,16 @@ monomio1 = convertiDaStringaAOggetto(listpol(monomioPar1))
 print("parte letterale del monomio " + str(monomio1.getParteLetterale()))
 print("coefficente del monomio " + str(monomio1.getCoefficente()))
 
-somma = sommaMonomi(monomio1, monomio)
+#somma = sommaMonomi(monomio1, monomio)
 
 
-print("parte letterale del monomio somma " + str(somma.getParteLetterale()))
-print("coefficente del monomio somma " + str(somma.getCoefficente()))
-print("parte letterale stringa " + somma.toString())
+#print("parte letterale del monomio somma " + str(somma.getParteLetterale()))
+#print("coefficente del monomio somma " + str(somma.getCoefficente()))
+#print("parte letterale stringa " + somma.toString())
+
+prodotto = moltipolicaMonomi(monomio1, monomio)
+
+
+print("parte letterale del monomio somma " + str(prodotto.getParteLetterale()))
+print("coefficente del monomio somma " + str(prodotto.getCoefficente()))
+print("parte letterale stringa " + prodotto.toString())

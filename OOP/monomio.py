@@ -9,8 +9,11 @@ class Monomio:
         return self.coefficente
     def toString(self):
         parteletterale = ""
-        for variabili in self.variabili:
-            parteletterale += variabili
-            parteletterale += "^"
-            parteletterale += self.variabili[variabili]
+        for variabiliPar in self.variabili:
+            if self.variabili[variabiliPar] != 1:
+                parteletterale += variabiliPar
+                parteletterale += "^"
+                parteletterale += str(self.variabili[variabiliPar])
+            else:
+                parteletterale += variabiliPar
         return str(self.coefficente) + parteletterale
