@@ -1,9 +1,14 @@
 from monomio import Monomio
 from listpol import listpol
+from polinomio import Polinomio
+import copy
 def convertiDaStringaAOggetto(monomioInListaFormatoListpol):
+    if str in monomioInListaFormatoListpol:
+        return convertiDaStringaAOggetto(monomioInListaFormatoListpol)
+    else:
+        return convertiDaStringaAOggetto(listpol(str(monomioInListaFormatoListpol.append("&"))))
     tempCoefficente = ''
     tempVariabili = {}
-    
     for i in range(len(monomioInListaFormatoListpol)):
         try:
             while monomioInListaFormatoListpol[i] == "-"  or type(int(monomioInListaFormatoListpol[i])) == int :
@@ -42,7 +47,9 @@ def sommaMonomi(monomioA, monomioB):
     else:
         return "errore, le parti letterali devono essere uguali"
 
-def moltipolicaMonomi(monomioA, monomioB):
+def moltipolicaMonomi(monomioAPar, monomioBPar):
+    monomioA = copy.deepcopy(monomioAPar)
+    monomioB = copy.deepcopy(monomioBPar)
     if len(monomioA.getParteLetterale()) > len(monomioB.getParteLetterale()):
         return moltipolicaMonomi(monomioB, monomioA)
     variabiliDaRitornare = {}
@@ -62,6 +69,23 @@ def moltipolicaMonomi(monomioA, monomioB):
                 except KeyError:
                     for variabile in monomioB.variabili.copy():
                         variabiliDaRitornare[variabile] = monomioB.variabili[variabile]
-    return Monomio(variabiliDaRitornare, cofficenteDaRitornare)
+    if '&' in variabiliDaRitornare:
+        variabiliDaRitornare.pop('&')
+        return Monomio(variabiliDaRitornare, cofficenteDaRitornare)
+    else:
+        return Monomio(variabiliDaRitornare, cofficenteDaRitornare)
 
-print(moltipolicaMonomi(convertiDaStringaAOggetto(listpol("2a^2")),convertiDaStringaAOggetto(listpol("2xy"))).toString())
+#TEST print(moltipolicaMonomi(convertiDaStringaAOggetto(listpol("2a^2b^2")),convertiDaStringaAOggetto(listpol("2xy"))).toString())
+
+def moltiplicaPolinomi(polinomioA, polinomioB):
+    arrMonomiDaRitornare = []
+    for monomi in polinomioA.arrMonomi:
+        for monomio in polinomioB.arrMonomi:
+            arrMonomiDaRitornare.append(moltipolicaMonomi(monomi, monomio).toString())
+    return str(arrMonomiDaRitornare)
+
+#print(moltiplicaPolinomi(Polinomio([Monomio({'a':2}, 2), Monomio({'a':3}, 2)]),Polinomio([Monomio({'a':2}, 2), Monomio({'b':3}, 2)])))
+#print(moltiplicaPolinomi(Polinomio([Monomio({'x':2}, 1), Monomio({'x':1}, -2)]),Polinomio([Monomio({'a':2}, 2), Monomio({'b':1}, -2)])))
+
+
+print(moltipolicaMonomi(convertiDaStringaAOggetto(listpol("2&")), convertiDaStringaAOggetto(listpol("4a"))).toString())
