@@ -53,6 +53,7 @@ def listpol(a):
                 pass
         i = i + 1
     b.pop(-1) #! IMPORTANTE, lasciare perchè rimuove lettera temporanea per non fare IndexError
+    print("rimosso")
     return b
 
 #print(listpol("ab^21"))

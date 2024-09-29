@@ -2,11 +2,18 @@ from monomio import Monomio
 from listpol import listpol
 from polinomio import Polinomio
 import copy
+def contains_letters(array):
+    for element in array:
+        if any(char.isalpha() or char == '&' for char in element):
+            return True
+    return False
 def convertiDaStringaAOggetto(monomioInListaFormatoListpol):
-    if str in monomioInListaFormatoListpol:
+    print("monomioformatolistpol " + str(monomioInListaFormatoListpol))
+    if 'm' in monomioInListaFormatoListpol:
+        monomioInListaFormatoListpol.pop(monomioInListaFormatoListpol.index("m"))
+    if not contains_letters(monomioInListaFormatoListpol):
+        monomioInListaFormatoListpol.append('&')
         return convertiDaStringaAOggetto(monomioInListaFormatoListpol)
-    else:
-        return convertiDaStringaAOggetto(listpol(str(monomioInListaFormatoListpol.append("&"))))
     tempCoefficente = ''
     tempVariabili = {}
     for i in range(len(monomioInListaFormatoListpol)):
@@ -88,4 +95,4 @@ def moltiplicaPolinomi(polinomioA, polinomioB):
 #print(moltiplicaPolinomi(Polinomio([Monomio({'x':2}, 1), Monomio({'x':1}, -2)]),Polinomio([Monomio({'a':2}, 2), Monomio({'b':1}, -2)])))
 
 
-print(moltipolicaMonomi(convertiDaStringaAOggetto(listpol("2&")), convertiDaStringaAOggetto(listpol("4a"))).toString())
+print(moltipolicaMonomi(convertiDaStringaAOggetto(listpol("2")), convertiDaStringaAOggetto(listpol("4a"))).toString())
