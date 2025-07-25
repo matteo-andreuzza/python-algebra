@@ -5,3 +5,4 @@ from polinomio import Polinomio
 from stringTools import creaPolinomioDaStringa
 
 print(moltiplica2soliPolinomi(creaPolinomioDaStringa(input("inserire polinomio1 ")), creaPolinomioDaStringa(input("inserire polinomio 2 "))))
+

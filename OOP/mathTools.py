@@ -85,6 +85,9 @@ def moltipolicaMonomi(monomioAPar, monomioBPar):
 #TEST print(moltipolicaMonomi(convertiDaStringaAOggetto(listpol("2a^2b^2")),convertiDaStringaAOggetto(listpol("2xy"))).toString())
 
 def moltiplica2soliPolinomi(polinomioA, polinomioB):
+    '''
+    esegue la moltiplicazione di due polinomi
+    '''
     arrMonomiDaRitornare = []
     for monomi in polinomioA.arrMonomi:
         for monomio in polinomioB.arrMonomi:

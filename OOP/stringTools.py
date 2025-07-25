@@ -61,4 +61,8 @@ def aggiungi_coefficiente_1(polinomio: str) -> str:
 print(createPolinomio(detectAndCreatePolinomio(aggiungi_coefficiente_1("a^2b-2ab+b^21-2b+a^2b^3"))))
 
 def creaPolinomioDaStringa(stringa) -> Polinomio:
+    '''
+    prende una stringa in linguaggio naturale (2a^2b^3) e restituisce un oggetto
+    Polinomio
+    '''
     return(createPolinomio(detectAndCreatePolinomio(aggiungi_coefficiente_1(stringa))))
