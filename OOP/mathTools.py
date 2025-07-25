@@ -84,15 +84,18 @@ def moltipolicaMonomi(monomioAPar, monomioBPar):
 
 #TEST print(moltipolicaMonomi(convertiDaStringaAOggetto(listpol("2a^2b^2")),convertiDaStringaAOggetto(listpol("2xy"))).toString())
 
-def moltiplicaPolinomi(polinomioA, polinomioB):
+def moltiplica2soliPolinomi(polinomioA, polinomioB):
     arrMonomiDaRitornare = []
     for monomi in polinomioA.arrMonomi:
         for monomio in polinomioB.arrMonomi:
             arrMonomiDaRitornare.append(moltipolicaMonomi(monomi, monomio).toString())
     return str(arrMonomiDaRitornare)
 
-#print(moltiplicaPolinomi(Polinomio([Monomio({'a':2}, 2), Monomio({'a':3}, 2)]),Polinomio([Monomio({'a':2}, 2), Monomio({'b':3}, 2)])))
-#print(moltiplicaPolinomi(Polinomio([Monomio({'x':2}, 1), Monomio({'x':1}, -2)]),Polinomio([Monomio({'a':2}, 2), Monomio({'b':1}, -2)])))
+
+#print(moltiplica2soliPolinomi(Polinomio([Monomio({'a':2}, 2), Monomio({'a':3}, 2)]),Polinomio([Monomio({'a':2}, 2), Monomio({'b':3}, 2)])))
+#print(moltiplica2soliPolinomi(Polinomio([Monomio({'x':2}, 1), Monomio({'x':1}, -2)]),Polinomio([Monomio({'a':2}, 2), Monomio({'b':1}, -2)])))
+#print(moltiplica2soliPolinomi(Polinomio([Monomio({'x':2}, 1), Monomio({'x':1}, -2)]),Polinomio([Monomio({'a':2}, 2), Monomio({'b':1}, -2)])))
 
 
-print(moltipolicaMonomi(convertiDaStringaAOggetto(listpol("2")), convertiDaStringaAOggetto(listpol("4a"))).toString())
+#print(moltipolicaMonomi(convertiDaStringaAOggetto(listpol("1x")), convertiDaStringaAOggetto(listpol("2y"))).toString())
+
